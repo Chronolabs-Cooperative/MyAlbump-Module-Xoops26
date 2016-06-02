@@ -1,0 +1,53 @@
+<table width="100%" cellspacing="0" class="outer">
+  <tr>
+    <td class="even">
+      <br />
+      <{includeq file="module:myalbum1|myalbum1_header.html"}>
+      <table broder='0' cellpadding='0' cellspacing='0' width='100%'>
+        <tr>
+          <td align='left'>
+            <span style="font-weight:bold;"><a href='index.php'><{$lang_album_main}></a>&nbsp;:&nbsp;<{$album_sub_title}>&nbsp;<{$photo.title}></span>
+          </td>
+          <td align='right'>
+            <{if $lang_add_photo}><a href="submit.php"><{$lang_add_photo}><img src="<{$mod_url}>/images/pictadd.gif" border="0" alt="<{$lang_add_photo}>" title="<{$lang_add_photo}>" /></a><{/if}>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br />
+<{$editform}>
+<br />
+<table width="100%" cellspacing="0" cellpadding="10" border="0">
+  <tr>
+    <td align="center">
+
+      <a href="<{$photo.ahref_photo}>" target="_blank" onClick="window.open('<{$photo.ahref_photo}>','','width=<{$photo.window_x}>,height=<{$photo.window_y}>');return(false);"><img src="<{$photo.imgsrc_photo}>" border="0" align="center" vspace="3" hspace="7" alt="<{$photo.title}>" title="<{$photo.title}>" style="max-width:98%; text-align:center;" <{$photo.width_height}> /></a>
+      <br />
+	</td>
+	<td>
+	   <{* DESCRIPTION *}>
+	
+	   <{if $photo.description || $photo.tagbar}>
+	      <table border='0' cellpadding='0' cellspacing='0' width='100%' class='outer'>
+	      <{if $photo.description}>
+	        <tr>
+	          <td class='odd'>
+	            <{$photo.description}>
+	          </td>
+	        </tr>
+	      <{/if}>
+	      <{if $photo.tagbar}>   
+	        <tr>
+	          <td class='even'>
+	          	<{includeq file="module:tag|tag_bar.html" tagbar=$photo.tagbar}>
+	          </td>
+	        </tr>
+	      <{/if}>
+	      </table>
+		<{/if}>
+    </td>
+  </tr>
+</table>
+<{includeq file="module:myalbum1|myalbum1_footer.html"}>
